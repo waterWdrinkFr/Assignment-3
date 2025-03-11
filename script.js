@@ -1,5 +1,6 @@
 document.getElementById("Heron").addEventListener('submit', Heron);
 document.getElementById("Ambig").addEventListener('submit', Ambig);
+document.getElementById("Newton").addEventListener('submit', Newton);
 
 function Heron(event) {
     event.preventDefault();
@@ -51,4 +52,24 @@ function Ambig(event) {
     else{
         document.getElementById("Type").value = "Error: Angle must be between 0 and 180 degrees";
     }
+}
+
+function Newton(event) {
+    event.preventDefault();
+    let x0 = parseFloat(document.getElementById("guess").value);
+    let x1 = approximateRoot(x0);
+
+    while (Math.abs(x1-x0) > 0.0001) {
+        console.log(x1);
+        x0 = x1;
+        x1 = approximateRoot(x0);
+    }
+
+    document.getElementById("Root").value = `Approximated Root: ${x1.toFixed(4)}`;
+}
+
+function approximateRoot(x0) {
+    const y = 6*Math.pow(x0, 4) - 13*Math.pow(x0, 3) - 18*Math.pow(x0, 2) + 7*x0 + 6;
+    const yPrime = 18*Math.pow(x0, 3) - 39*Math.pow(x0, 2) - 36*x0 + 7;
+    return x0 - y/yPrime;
 }
