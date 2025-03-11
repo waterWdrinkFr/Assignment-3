@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">Javascriupt
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -9,15 +9,25 @@
 </head>
 
 <body>
-  <div class="Heron's Formula">
-    <h1>Heron's Formula Calculator</h1>
+  <div class="Heron">
+    <h1>Heron's Formula</h1>
     <form id ="Heron">
-      <input type="double" id="sideA" name="sideA" placeholder="Side A" required />
-      <input type="double" id="sideB" name="sideB" placeholder="Side B" required />
-      <input type="double" id="sideC" name="sideC" placeholder="Side C" required />
-      <input type="submit" value="Calculate" />
+      <input type="double" id="HeronA" name="HeronA" placeholder="Side A" required />
+      <input type="double" id="HeronB" name="HeronB" placeholder="Side B" required />
+      <input type="double" id="HeronC" name="HeronC" placeholder="Side C" required />
+      <input type="submit" value="Enter" />
       <input type="text" id="Area" name="Area" placeholder="Area" readonly />
     </form>
+
+    <div class="Ambig">
+      <h1>Ambiguous Case</h1>
+      <form id ="Ambig">
+        <input type="double" id="angleA" name="angleA" placeholder="Angle A" required />
+        <input type="double" id="sideA" name="sideA" placeholder="Side A" required />
+        <input type="double" id="sideB" name="sideB" placeholder="Side B" required />
+        <input type="submit" value="Enter" />
+        <input type="text" id="Type" name="Type" placeholder="Triangle Type" readonly />
+      </form>
 
     <script src="script.js"></script>
 </body>
