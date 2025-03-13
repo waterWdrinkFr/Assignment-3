@@ -1,19 +1,20 @@
 document.getElementById("Heron").addEventListener('submit', Heron);
 document.getElementById("Ambig").addEventListener('submit', Ambig);
 document.getElementById("Newton").addEventListener('submit', Newton);
+document.getElementById("Polynomial").addEventListener('submit', Polynomial);
 
 function Heron(event) {
     event.preventDefault();
-    const a = parseFloat(document.getElementById("HeronA").value);
-    const b = parseFloat(document.getElementById("HeronB").value);
-    const c = parseFloat(document.getElementById("HeronC").value);
+    const a = parseFloat(document.getElementById("heronA").value);
+    const b = parseFloat(document.getElementById("heronB").value);
+    const c = parseFloat(document.getElementById("heronC").value);
 
     if (a < b+c && b < a+c && c < a+b) {
         const area = 0.25*Math.sqrt(4*a*a*b*b - Math.pow(a*a + b*b - c*c, 2));
-        document.getElementById("Area").value = `Area: ${area.toFixed(2)} units squared`; 
+        document.getElementById("area").value = `Area: ${area.toFixed(2)} units squared`; 
     }
     else{
-        document.getElementById("Area").value = "Error: Invalid Side Lengths";
+        document.getElementById("area").value = "Error: Invalid Side Lengths";
     }
 }
 
@@ -27,30 +28,30 @@ function Ambig(event) {
 
     if (angle > 0 && angle <= 90) {
         if (h < a && a < b) {
-            document.getElementById("Type").value = "two triangles (ambiguous case)";
+            document.getElementById("type").value = "two triangles (ambiguous case)";
         }  
         else if (a == h) {
-            document.getElementById("Type").value = "right triangle";
+            document.getElementById("type").value = "right triangle";
         }
         else if (a < h) {
-            document.getElementById("Type").value = "no triangle";
+            document.getElementById("type").value = "no triangle";
         }
         else if (a >= b) {
-            document.getElementById("Type").value = "one triangle";
+            document.getElementById("type").value = "one triangle";
         } 
     }
 
     else if (angle < 180 && angle > 90){
         if (a < b ||  a == b) {
-            document.getElementById("Type").value = "no triangle";
+            document.getElementById("type").value = "no triangle";
         }
         else if (a > b) {
-            document.getElementById("Type").value = "one triangle";
+            document.getElementById("type").value = "one triangle";
         }
     }
 
     else{
-        document.getElementById("Type").value = "Error: Angle must be between 0 and 180 degrees";
+        document.getElementById("type").value = "Error: Angle must be between 0 and 180 degrees";
     }
 }
 
@@ -65,11 +66,41 @@ function Newton(event) {
         x1 = approximateRoot(x0);
     }
 
-    document.getElementById("Root").value = `Approximated Root: ${x1.toFixed(4)}`;
+    document.getElementById("root").value = `Approximated Root: ${x1.toFixed(4)}`;
 }
 
 function approximateRoot(x0) {
-    const y = 6*Math.pow(x0, 4) - 13*Math.pow(x0, 3) - 18*Math.pow(x0, 2) + 7*x0 + 6;
-    const yPrime = 18*Math.pow(x0, 3) - 39*Math.pow(x0, 2) - 36*x0 + 7;
+    let y = 6*Math.pow(x0, 4) - 13*Math.pow(x0, 3) - 18*Math.pow(x0, 2) + 7*x0 + 6;
+    let yPrime = 24*Math.pow(x0, 3) - 39*Math.pow(x0, 2) - 36*x0 + 7;
+    console.log(y, yPrime);
     return x0 - y/yPrime;
+}
+
+function Polynomial(event) {
+    event.preventDefault();
+    const coeff = document.getElementById("coeff").value.split(" ");
+    const exp = document.getElementById("exp").value.split(" ");
+    const x = parseFloat(document.getElementById("x").value);
+    let func = "";
+    let y = 0;
+    
+    console.log(coeff, coeff.length, exp, exp.length);
+    if (coeff.length != exp.length) {
+        document.getElementById("eval").value = "Error: Invalid Input";
+    }
+    else {
+        let y = 0;
+        for (let i = 0; i < coeff.length; i++) {
+            console.log(y);
+            y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
+            if (parseFloat(coeff[i]) >= 0 && i < coeff.length-1) {
+                func += `${coeff[i]}x^${exp[i]} + `;
+            }
+            else {
+                func += `${coeff[i]}x`;
+            }
+        }
+        document.getElementById("f(x)").value = func;
+        document.getElementById("eval").value = `f(${x}) = ${y}`;
+    }
 }
