@@ -1,9 +1,9 @@
-document.getElementById("Heron").addEventListener('submit', Heron);
-document.getElementById("Ambig").addEventListener('submit', Ambig);
-document.getElementById("Newton").addEventListener('submit', Newton);
-document.getElementById("Polynomial").addEventListener('submit', Polynomial);
+document.getElementById("heron").addEventListener('submit', heron);
+document.getElementById("ambig").addEventListener('submit', ambig);
+document.getElementById("newton").addEventListener('submit', newton);
+document.getElementById("poly").addEventListener('submit', poly);
 
-function Heron(event) {
+function heron(event) {
     event.preventDefault();
     const a = parseFloat(document.getElementById("heronA").value);
     const b = parseFloat(document.getElementById("heronB").value);
@@ -17,7 +17,7 @@ function Heron(event) {
     }
 }
 
-function Ambig(event) {
+function ambig(event) {
     event.preventDefault();
     const angle = parseFloat(document.getElementById("angleA").value);
     const a = parseFloat(document.getElementById("sideA").value);
@@ -49,7 +49,7 @@ function Ambig(event) {
     }
 }
 
-function Newton(event) {
+function newton(event) {
     event.preventDefault();
     let x0 = parseFloat(document.getElementById("guess").value);
     let x1 = approximateRoot(x0);
@@ -68,7 +68,7 @@ function approximateRoot(x0) {
     return x0 - y/yPrime;
 }
 
-function Polynomial(event) {
+function poly(event) {
     event.preventDefault();
     const coeff = document.getElementById("coeff").value.split(" ");
     const exp = document.getElementById("exp").value.split(" ");
