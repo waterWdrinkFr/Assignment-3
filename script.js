@@ -54,12 +54,12 @@ function newton(event) {
     let x0 = parseFloat(document.getElementById("guess").value);
     let x1 = approximateRoot(x0);
 
-    while (Math.abs(x1-x0) > 0.0001) {
+    while (Math.abs(x0-x1) > 0.0001) {
         x0 = x1;
         x1 = approximateRoot(x0);
     }
 
-    document.getElementById("root").value = `Approximated Root: ${x1.toFixed(4)}`;
+    document.getElementById("root").value = `Approximated Root: ${x1.toFixed(3)}`;
 }
 
 function approximateRoot(x0) {

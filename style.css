@@ -1,51 +1,38 @@
 body {
-    display: flex;
-    background-color: rgb(226, 226, 226);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-evenly;
+    margin-top: 1.75%;
+    margin-left: 25%;
+    gap: 50px;
+    width: 50%;
+    background-color: lightgray;
     font-family: 'Times New Roman', serif;
 }
 
-.heron {
+.heron, .ambig, .newton, .poly {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
     text-align: center;
 }
 
-.ambig {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
-    text-align: center;
-}
-
-.newton {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
-    text-align: center;
-}
-
-.poly {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
-    text-align: center;
+.heron input, .ambig input, .newton input, .poly input, input[type="submit"] {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: fit-content;
 }
 
 input[type="submit"] {
-    background-color: rgb(100, 100, 252);
-    color: white;
-    padding: 10px;
+    margin-top: 12px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
+    background-color: rgb(100, 100, 252);
+    color: white;
     cursor: pointer;
 }
