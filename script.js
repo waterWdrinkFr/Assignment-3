@@ -12,8 +12,7 @@ function Heron(event) {
     if (a < b+c && b < a+c && c < a+b) {
         const area = 0.25*Math.sqrt(4*a*a*b*b - Math.pow(a*a + b*b - c*c, 2));
         document.getElementById("area").value = `Area: ${area.toFixed(2)} units squared`; 
-    }
-    else{
+    } else{
         document.getElementById("area").value = "Error: Invalid Side Lengths";
     }
 }
@@ -24,7 +23,6 @@ function Ambig(event) {
     const a = parseFloat(document.getElementById("sideA").value);
     const b = parseFloat(document.getElementById("sideB").value);
     const h = b * Math.sin(angle * Math.PI / 180).toFixed(2);
-    console.log(angle, a, b, h);
 
     if (angle > 0 && angle <= 90) {
         if (h < a && a < b) {
@@ -39,18 +37,14 @@ function Ambig(event) {
         else if (a >= b) {
             document.getElementById("type").value = "one triangle";
         } 
-    }
-
-    else if (angle < 180 && angle > 90){
+    } else if (angle < 180 && angle > 90){
         if (a < b ||  a == b) {
             document.getElementById("type").value = "no triangle";
         }
         else if (a > b) {
             document.getElementById("type").value = "one triangle";
         }
-    }
-
-    else{
+    } else{
         document.getElementById("type").value = "Error: Angle must be between 0 and 180 degrees";
     }
 }
@@ -61,7 +55,6 @@ function Newton(event) {
     let x1 = approximateRoot(x0);
 
     while (Math.abs(x1-x0) > 0.0001) {
-        console.log(x1);
         x0 = x1;
         x1 = approximateRoot(x0);
     }
@@ -72,7 +65,6 @@ function Newton(event) {
 function approximateRoot(x0) {
     let y = 6*Math.pow(x0, 4) - 13*Math.pow(x0, 3) - 18*Math.pow(x0, 2) + 7*x0 + 6;
     let yPrime = 24*Math.pow(x0, 3) - 39*Math.pow(x0, 2) - 36*x0 + 7;
-    console.log(y, yPrime);
     return x0 - y/yPrime;
 }
 
@@ -84,19 +76,15 @@ function Polynomial(event) {
     let func = "";
     let y = 0;
     
-    console.log(coeff, coeff.length, exp, exp.length);
     if (coeff.length != exp.length) {
         document.getElementById("eval").value = "Error: Invalid Input";
-    }
-    else {
+    } else {
         let y = 0;
         for (let i = 0; i < coeff.length; i++) {
-            console.log(y);
             y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
             if (parseFloat(coeff[i]) >= 0 && i < coeff.length-1) {
                 func += `${coeff[i]}x^${exp[i]} + `;
-            }
-            else {
+            } else {
                 func += `${coeff[i]}x`;
             }
         }
