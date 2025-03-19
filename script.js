@@ -88,7 +88,7 @@ function poly(event) {
                 func += `${coeff[i]}x`;
             }
         }
-        document.getElementById("f(x)").value = func;
+        document.getElementById("f(x)").value = `f(x) = ${func}`;
         document.getElementById("eval").value = `f(${x}) = ${y}`;
     }
 }
