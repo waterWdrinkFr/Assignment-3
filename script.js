@@ -45,7 +45,7 @@ function ambig(event) {
             document.getElementById("type").value = "one triangle";
         }
     } else{
-        document.getElementById("type").value = "Error: Angle must be between 0 and 180 degrees";
+        document.getElementById("type").value = "Error: Angle must be between 0 and 180";
     }
 }
 
