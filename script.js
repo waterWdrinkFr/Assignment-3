@@ -83,12 +83,20 @@ function poly(event) {
         for (let i = 0; i < coeff.length; i++) {
             y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
             if (parseFloat(coeff[i]) >= 0 && i < coeff.length-1) {
-                func += `${coeff[i]}x^${exp[i]} + `;
+                if (parseFloat(exp[i]) != 0){
+                    func += `${coeff[i]}x^${exp[i]}+`;
+                } else {
+                    func += `${coeff[i]}+`;
+                }
             } else {
-                func += `${coeff[i]}x`;
+                if (parseFloat(exp[i]) != 0){
+                    func += `${coeff[i]}+`;
+                } else {
+                    func += `${coeff[i]}`;
+                }
             }
         }
-        document.getElementById("f(x)").value = func;
+        document.getElementById("f(x)").value = `f(x) = ${func}`;
         document.getElementById("eval").value = `f(${x}) = ${y}`;
     }
 }
