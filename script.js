@@ -81,12 +81,13 @@ function poly(event) {
     } else {
         let y = 0;
         for (let i = 0; i < coeff.length; i++) {
+            console.log(func);
             y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
-            if (i < coeff.length) {
+            if (i < coeff.length-1) {
                 if (parseFloat(exp[i]) != 0){
                     func += `${coeff[i]}x^${exp[i]}+`;
                 } else {
-                    func += `${coeff[i]}`;
+                    func += `${coeff[i]}+`;
                 }
             } else {
                 if (parseFloat(exp[i]) != 0){
