@@ -52,21 +52,20 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
 document.getElementById("newton").addEventListener("submit", (event) => {
     event.preventDefault();
     let x0 = parseFloat(document.getElementById("guess").value);
-
-    function newton(x0) {
-        let y = 6 * Math.pow(x0, 4) - 13 * Math.pow(x0, 3) - 18 * Math.pow(x0, 2) + 7 * x0 + 6;
-        let yPrime = 24 * Math.pow(x0, 3) - 39 * Math.pow(x0, 2) - 36 * x0 + 7;
-        let x1 = x0 - y / yPrime;
-
-        if (Math.abs(x0 - x1) <= 0.0001) {
-            return x1;
-        }
-        return newton(x1);
-    }
-
     let root = newton(x0);
     document.getElementById("root").value = `Approximated Root: ${root.toFixed(3)}`;
 });
+
+function newton(x0) {
+    let y = 6 * Math.pow(x0, 4) - 13 * Math.pow(x0, 3) - 18 * Math.pow(x0, 2) + 7 * x0 + 6;
+    let yPrime = 24 * Math.pow(x0, 3) - 39 * Math.pow(x0, 2) - 36 * x0 + 7;
+    let x1 = x0 - y / yPrime;
+
+    if (Math.abs(x0 - x1) <= 0.0001) {
+        return x1;
+    }
+    return newton(x1);
+}
 
 document.getElementById("poly").addEventListener('submit', (event) => {
     event.preventDefault();
