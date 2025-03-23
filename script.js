@@ -1,9 +1,9 @@
-document.getElementById("heron").addEventListener('submit', heron);
-document.getElementById("ambig").addEventListener('submit', ambig);
-document.getElementById("newton").addEventListener('submit', newton);
-document.getElementById("poly").addEventListener('submit', poly);
+// document.getElementById("heron").addEventListener('submit', heron);
+// document.getElementById("ambig").addEventListener('submit', ambig);
+// document.getElementById("newton").addEventListener('submit', newton);
+// document.getElementById("poly").addEventListener('submit', poly);
 
-function heron(event) {
+document.getElementById("heron").addEventListener('submit', (event) => {
     event.preventDefault();
     const a = parseFloat(document.getElementById("heronA").value);
     const b = parseFloat(document.getElementById("heronB").value);
@@ -15,9 +15,9 @@ function heron(event) {
     } else{
         document.getElementById("area").value = "Error: Invalid Side Lengths";
     }
-}
+})
 
-function ambig(event) {
+document.getElementById("ambig").addEventListener('submit', (event) => {
     event.preventDefault();
     const angle = parseFloat(document.getElementById("angleA").value);
     const a = parseFloat(document.getElementById("sideA").value);
@@ -47,9 +47,9 @@ function ambig(event) {
     } else{
         document.getElementById("type").value = "Error: Angle must be between 0 and 180 degrees";
     }
-}
+})
 
-function newton(event) {
+document.getElementById("newton").addEventListener('submit', (event) => {
     event.preventDefault();
     let x0 = parseFloat(document.getElementById("guess").value);
     let x1 = approximateRoot(x0);
@@ -60,7 +60,7 @@ function newton(event) {
     }
 
     document.getElementById("root").value = `Approximated Root: ${x1.toFixed(3)}`;
-}
+})
 
 function approximateRoot(x0) {
     let y = 6*Math.pow(x0, 4) - 13*Math.pow(x0, 3) - 18*Math.pow(x0, 2) + 7*x0 + 6;
@@ -68,7 +68,7 @@ function approximateRoot(x0) {
     return x0 - y/yPrime;
 }
 
-function poly(event) {
+document.getElementById("poly").addEventListener('submit', (event) => {
     event.preventDefault();
     const coeff = document.getElementById("coeff").value.split(" ");
     const exp = document.getElementById("exp").value.split(" ");
@@ -91,4 +91,4 @@ function poly(event) {
         document.getElementById("f(x)").value = func;
         document.getElementById("eval").value = `f(${x}) = ${y}`;
     }
-}
+})
