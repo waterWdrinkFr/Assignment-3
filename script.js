@@ -45,7 +45,7 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
             document.getElementById("type").value = "one triangle";
         }
     } else{
-        document.getElementById("type").value = "Error: Angle must be between 0 and 180 degrees";
+        document.getElementById("type").value = "Error: Angle must be between 0 and 180";
     }
 })
 
@@ -81,14 +81,23 @@ document.getElementById("poly").addEventListener('submit', (event) => {
     } else {
         let y = 0;
         for (let i = 0; i < coeff.length; i++) {
+            console.log(func);
             y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
-            if (parseFloat(coeff[i]) >= 0 && i < coeff.length-1) {
-                func += `${coeff[i]}x^${exp[i]} + `;
+            if (i < coeff.length-1) {
+                if (parseFloat(exp[i]) != 0){
+                    func += `${coeff[i]}x^${exp[i]}+`;
+                } else {
+                    func += `${coeff[i]}+`;
+                }
             } else {
-                func += `${coeff[i]}x`;
+                if (parseFloat(exp[i]) != 0){
+                    func += `${coeff[i]}x^${exp[i]}`;
+                } else {
+                    func += `${coeff[i]}`;
+                }
             }
         }
-        document.getElementById("f(x)").value = func;
+        document.getElementById("f(x)").value = `f(x) = ${func}`;
         document.getElementById("eval").value = `f(${x}) = ${y}`;
     }
 })
