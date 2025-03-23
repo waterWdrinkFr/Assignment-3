@@ -62,10 +62,10 @@ document.getElementById("newton").addEventListener('submit', (event) => {
     document.getElementById("root").value = `Approximated Root: ${x1.toFixed(3)}`;
 })
 
-function approximateRoot(x0) {
-    let y = 6*Math.pow(x0, 4) - 13*Math.pow(x0, 3) - 18*Math.pow(x0, 2) + 7*x0 + 6;
-    let yPrime = 24*Math.pow(x0, 3) - 39*Math.pow(x0, 2) - 36*x0 + 7;
-    return x0 - y/yPrime;
+function approximateRoot(x) {
+    let y = 6*Math.pow(x, 4) - 13*Math.pow(x, 3) - 18*Math.pow(x, 2) + 7*x + 6;
+    let yPrime = 24*Math.pow(x, 3) - 39*Math.pow(x, 2) - 36*x + 7;
+    return x - y/yPrime;
 }
 
 document.getElementById("poly").addEventListener('submit', (event) => {
