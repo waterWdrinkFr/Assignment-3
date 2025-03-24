@@ -1,8 +1,3 @@
-// document.getElementById("heron").addEventListener('submit', heron);
-// document.getElementById("ambig").addEventListener('submit', ambig);
-// document.getElementById("newton").addEventListener('submit', newton);
-// document.getElementById("poly").addEventListener('submit', poly);
-
 document.getElementById("heron").addEventListener('submit', (event) => {
     event.preventDefault();
     const a = parseFloat(document.getElementById("heronA").value);
