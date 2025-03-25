@@ -22,21 +22,17 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     if (angle > 0 && angle <= 90) {
         if (h < a && a < b) {
             document.getElementById("type").value = "two triangles (ambiguous case)";
-        }  
-        else if (a == h) {
+        } else if (a == h) {
             document.getElementById("type").value = "right triangle";
-        }
-        else if (a < h) {
+        } else if (a < h) {
             document.getElementById("type").value = "no triangle";
-        }
-        else if (a >= b) {
+        } else if (a >= b) {
             document.getElementById("type").value = "one triangle";
         } 
     } else if (angle < 180 && angle > 90){
-        if (a < b ||  a == b) {
+        if (a < b || a == b) {
             document.getElementById("type").value = "no triangle";
-        }
-        else if (a > b) {
+        } else if (a > b) {
             document.getElementById("type").value = "one triangle";
         }
     } else{
