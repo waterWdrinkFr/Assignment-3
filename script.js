@@ -71,7 +71,6 @@ document.getElementById("poly").addEventListener('submit', (event) => {
     } else {
         let y = 0;
         for (let i = 0; i < coeff.length; i++) {
-            console.log(func);
             y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
             if (i < coeff.length-1) {
                 if (parseFloat(exp[i]) != 0){
