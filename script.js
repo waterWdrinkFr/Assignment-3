@@ -1,8 +1,3 @@
-// document.getElementById("heron").addEventListener('submit', heron);
-// document.getElementById("ambig").addEventListener('submit', ambig);
-// document.getElementById("newton").addEventListener('submit', newton);
-// document.getElementById("poly").addEventListener('submit', poly);
-
 document.getElementById("heron").addEventListener('submit', (event) => {
     event.preventDefault();
     const a = parseFloat(document.getElementById("heronA").value);
@@ -27,21 +22,17 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     if (angle > 0 && angle <= 90) {
         if (h < a && a < b) {
             document.getElementById("type").value = "two triangles (ambiguous case)";
-        }  
-        else if (a == h) {
+        } else if (a == h) {
             document.getElementById("type").value = "right triangle";
-        }
-        else if (a < h) {
+        } else if (a < h) {
             document.getElementById("type").value = "no triangle";
-        }
-        else if (a >= b) {
+        } else if (a >= b) {
             document.getElementById("type").value = "one triangle";
         } 
     } else if (angle < 180 && angle > 90){
         if (a < b || a == b) {
             document.getElementById("type").value = "no triangle";
-        }
-        else if (a > b) {
+        } else if (a > b) {
             document.getElementById("type").value = "one triangle";
         }
     } else{
@@ -80,7 +71,6 @@ document.getElementById("poly").addEventListener('submit', (event) => {
     } else {
         let y = 0;
         for (let i = 0; i < coeff.length; i++) {
-            console.log(func);
             y += parseFloat(coeff[i])*Math.pow(x, parseFloat(exp[i]));
             if (i < coeff.length-1) {
                 if (parseFloat(exp[i]) != 0){
